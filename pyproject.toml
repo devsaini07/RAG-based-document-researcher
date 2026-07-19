@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ladr"
+version = "0.1.0"
+description = "Local offline document researcher with Ollama and LangChain"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "chromadb>=0.5.5",
+  "langchain>=0.2.12",
+  "langchain-community>=0.2.11",
+  "langchain-ollama>=0.1.0",
+  "langchain-text-splitters>=0.2.2",
+  "pypdf>=4.3.1",
+]
+
+[project.scripts]
+ladr-ingest = "ladr.ingest:main"
+ladr-ask = "ladr.ask:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
